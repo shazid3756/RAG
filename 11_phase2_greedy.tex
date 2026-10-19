@@ -1,0 +1,12 @@
+\subsubsection{Generator comparison under a single decoding regime}
+\label{sec:phase2-greedy}
+
+The generator comparison of Section~\ref{sec:generators} was originally run under each model's own default sampling settings, while every later phase uses greedy decoding with a fixed seed. To remove the one place where the study used two protocols, the comparison was repeated under greedy decoding on 500 items per dataset.
+
+On medmcqa, the ordering of retained models is unchanged from Table~\ref{tab:generators}, with \texttt{llama3.1:8b} again ranked first at 58.40\%.
+Parse-failure rates on medmcqa remain the dominant separator, ranging from 0.2\% to 100.0\%.
+
+On medqa, greedy decoding changes the ordering of retained models: \texttt{gemma2:9b-instruct-q4\_0} now ranks first at 63.40\%, where the default-sampling run placed \texttt{llama3.1:8b} first. The models whose rank changes are: \texttt{llama3.1:8b}, \texttt{gemma2:9b-instruct-q4\_0}.
+Parse-failure rates on medqa remain the dominant separator, ranging from 0.0\% to 100.0\%.
+
+Where the ordering changes, the greedy figures reported here supersede the default-sampling values, and Table~\ref{tab:generators} has been updated accordingly. The exclusion decisions are unaffected: the three excluded models fail to produce a parseable answer on a large majority of items under either regime.

@@ -1,0 +1,14 @@
+\subsubsection{Resolving the prompt difference}
+\label{sec:confound-resolved}
+
+Section~\ref{sec:confound} noted that stage~A and the context arms differ in one instruction sentence as well as in the presence of retrieved text, so that A$\rightarrow$C confounds the two. Stage~A2 removes the ambiguity: it uses the full context-arm prompt verbatim, with the context string replaced by the placeholder the pipeline already substitutes when retrieval returns nothing. A2 and C therefore differ in nothing but whether real passages appear in that slot. The prompt literal was verified byte-identical to the one used by the context arms.
+
+On medqa, A2 scores 60.57\% against 60.64\% for stage~A, a difference of +0.08~pp ($+65/-64$, $p=1$).
+On medmcqa, A2 scores 54.22\% against 54.86\% for stage~A, a difference of +0.65~pp ($+209/-182$, $p=0.188$).
+
+The instruction sentence does not measurably change accuracy on either benchmark. The A$\rightarrow$C contrast is therefore attributable to the presence of retrieved context rather than to prompt wording, and the central claim stands as stated. For completeness we also report the fully isolated contrast:
+
+A2$\rightarrow$C on medqa is -2.67~pp (60.57\% to 57.89\%, $p=0.0337$).
+A2$\rightarrow$C on medmcqa is -5.07~pp (54.22\% to 49.15\%, $p=0.0e+00$).
+
+This control cost one additional generation pass over both complete test sets and no additional retrieval, and it converts the paper's central contrast from a confounded comparison into a clean one.

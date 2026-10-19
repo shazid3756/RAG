@@ -1,0 +1,6 @@
+FROM C:\Users\h\OneDrive\Desktop\New folder (5)\Medical_RAG_Project\qlora_output\qwen2.5-7b-medqa-merged
+
+TEMPLATE """{{ .Prompt }}"""
+
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|im_start|>"

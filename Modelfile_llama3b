@@ -1,0 +1,6 @@
+FROM C:\Users\h\OneDrive\Desktop\New folder (5)\Medical_RAG_Project\qlora_output\llama3.2-3b-medqa-merged
+
+TEMPLATE """{{ .Prompt }}"""
+
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|end_of_text|>"
